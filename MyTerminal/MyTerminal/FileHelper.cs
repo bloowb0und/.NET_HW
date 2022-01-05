@@ -19,25 +19,32 @@ namespace MyTerminal
             if (string.IsNullOrWhiteSpace(curPath))
             {
                 OutputHelper.ConsoleEmptyInputOutput();
+                
                 return false;
             }
 
             if (!Directory.Exists(curPath))
             {
                 OutputHelper.ConsoleDirectoryDoesntExistOutput();
+                
                 return false;
             }
 
             if (curPath == "../")
             {
                 var allParts = CurrentPath.Split('\\');
-                if(allParts[allParts.Length - 1].Length != 0)
+                if (allParts[allParts.Length - 1].Length != 0)
+                {
                     curPath = CurrentPath.Substring(0, CurrentPath.Length - allParts[allParts.Length - 1].Length);
+                }
                 else
+                {
                     curPath = CurrentPath.Substring(0, CurrentPath.Length - (allParts[allParts.Length - 2].Length + 1));
+                }
             }
             
             CurrentPath = curPath;
+            
             return true;
         }
         
@@ -46,10 +53,12 @@ namespace MyTerminal
             if (string.IsNullOrWhiteSpace(fileName))
             {
                 OutputHelper.ConsoleInvalidArgumentsOutput();
+                
                 return false; 
             }
             
             using (var fs = File.Create($"{CurrentPath}\\{fileName}")) ;
+            
             return true;
         }
 
@@ -60,21 +69,26 @@ namespace MyTerminal
             if (!file.Exists)
             {
                 OutputHelper.ConsoleFileDoesntExistOutput();
+                
                 return false;
             }
 
             file.Delete();
+            
             return true;
         }
         
         public bool CreateDirectory(string dirName)
         {
             var directory = new DirectoryInfo($"{CurrentPath}\\{dirName}");
-            
-            if (directory.Exists) 
+
+            if (directory.Exists)
+            {
                 return false;
+            }
 
             directory.Create();
+            
             return true;
         }
 
@@ -85,10 +99,12 @@ namespace MyTerminal
             if (!directory.Exists)
             {
                 OutputHelper.ConsoleFileDoesntExistOutput();
+                
                 return false;
             }
             
             directory.Delete(true);
+            
             return true;
         }
         
@@ -99,14 +115,17 @@ namespace MyTerminal
             if (!file.Exists)
             {
                 OutputHelper.ConsoleFileDoesntExistOutput();
+                
                 return false;
             }
-            
-            // File.MoveTo(newPath);
+
             if (File.Exists($"{newPath}\\{fileName}"))
+            {
                 File.Delete($"{newPath}\\{fileName}");
-            
+            }
+
             File.Move($"{CurrentPath}\\{fileName}", $"{newPath}\\{fileName}");
+            
             return true;
         }
         
@@ -115,6 +134,7 @@ namespace MyTerminal
             if (!Directory.Exists(CurrentPath))
             {
                 OutputHelper.ConsoleDirectoryDoesntExistOutput();
+                
                 return false;
             }
 
@@ -157,84 +177,27 @@ namespace MyTerminal
             foreach (var file in filteredF)
             {
                 Console.WriteLine(file.Name);
-                
-                if (input.Flags == null || !Array.Exists(input.Flags, s => s == "-outTr")) 
+
+                if (input.Flags == null || !Array.Exists(input.Flags, s => s == "-outTr"))
+                {
                     continue;
+                }
+
                 Console.WriteLine("\t" + "- size: " + file.Length + " bytes");
                 Console.WriteLine("\t" + "- created: " + file.CreationTimeUtc.Date.ToString("d"));
                 Console.WriteLine("\t" + "- edited: " + file.LastWriteTimeUtc.Date.ToString("d"));
             }
             Console.WriteLine(new string('-', 20));
-            return true;
-        }
-        
-        // -------------------------
-        /*
-        private static bool GetFilesTreeView(bool withHidden)
-        {
-            Console.WriteLine(new string('-', 20));
-            var directoryInfo = new DirectoryInfo(CurrentPath);
-            var files = directoryInfo.GetFiles();
-
-            FileInfo[] filtered;
             
-            if(withHidden)
-                filtered = files.Where(f => f.Attributes.HasFlag(FileAttributes.Hidden)).ToArray();
-            else
-                filtered = files.Where(f => !f.Attributes.HasFlag(FileAttributes.Hidden)).ToArray();
-            
-            foreach (var file in filtered)
-            {
-                Console.WriteLine(file.Name + file.Extension);
-                Console.WriteLine("\t" + "- size: " + file.Length + " bytes");
-                Console.WriteLine("\t" + "- created: " + file.CreationTimeUtc.Date.ToString("d"));
-                Console.WriteLine("\t" + "- edited: " + file.LastWriteTimeUtc.Date.ToString("d"));
-            }
-            Console.WriteLine(new string('-', 20));
-
             return true;
         }
-        
-        private static bool GetFiles(bool withHidden)
-        {
-            Console.WriteLine(new string('-', 20));
-            var directoryInfo = new DirectoryInfo(CurrentPath);
-            var files = directoryInfo.GetFiles();
-            var dirs = directoryInfo.GetDirectories();
-
-            FileInfo[] filteredF;
-            DirectoryInfo[] filteredD;
-            if (withHidden)
-            {
-                filteredF = files.Where(f => f.Attributes.HasFlag(FileAttributes.Hidden)).ToArray();
-                filteredD = dirs.Where(f => f.Attributes.HasFlag(FileAttributes.Hidden)).ToArray();
-            }
-            else
-            {
-                filteredF = files.Where(f => !f.Attributes.HasFlag(FileAttributes.Hidden)).ToArray();
-                filteredD = dirs.Where(f => !f.Attributes.HasFlag(FileAttributes.Hidden)).ToArray();
-            }
-
-            foreach (var file in filteredF)
-            {
-                Console.WriteLine(file.Name + file.Extension);
-                Console.WriteLine("\t" + "- size: " + file.Length + " bytes");
-                Console.WriteLine("\t" + "- created: " + file.CreationTimeUtc.Date.ToString("d"));
-                Console.WriteLine("\t" + "- edited: " + file.LastWriteTimeUtc.Date.ToString("d"));
-            }
-            Console.WriteLine(new string('-', 20));
-
-            return true;
-        }
-        
-        */
-        // ------------------------
 
         public bool ShowFileContent(string fileName)
         {
             if (!File.Exists($"{CurrentPath}\\{fileName}"))
             {
                 OutputHelper.ConsoleFileDoesntExistOutput();
+                
                 return false;
             }
             
@@ -260,12 +223,14 @@ namespace MyTerminal
             if (!File.Exists($"{CurrentPath}\\{fileName}"))
             {
                 OutputHelper.ConsoleFileDoesntExistOutput();
+                
                 return false;
             }
 
             if (string.IsNullOrWhiteSpace(argument))
             {
                 OutputHelper.ConsoleFileDoesntExistOutput();
+                
                 return false;
             }
             
@@ -284,16 +249,19 @@ namespace MyTerminal
             if (!File.Exists($"{CurrentPath}\\{fileName}"))
             {
                 OutputHelper.ConsoleFileDoesntExistOutput();
+                
                 return false;
             }
             
             if (string.IsNullOrWhiteSpace(newFileName))
             {
                 OutputHelper.ConsoleFileDoesntExistOutput();
+                
                 return false;
             }
             
             File.Move($"{CurrentPath}\\{fileName}", $"{CurrentPath}\\{newFileName}");
+            
             return true;
         }
         
@@ -302,16 +270,19 @@ namespace MyTerminal
             if (!Directory.Exists($"{CurrentPath}\\{fileName}"))
             {
                 OutputHelper.ConsoleDirectoryDoesntExistOutput();
+                
                 return false;
             }
             
             if (string.IsNullOrWhiteSpace(newFileName))
             {
                 OutputHelper.ConsoleFileDoesntExistOutput();
+                
                 return false;
             }
             
             Directory.Move($"{CurrentPath}\\{fileName}", $"{CurrentPath}\\{newFileName}");
+            
             return true;
         }
     }

@@ -64,6 +64,7 @@ namespace MyTerminal
                     if (command != "ls")
                     {
                         OutputHelper.ConsoleInvalidArgumentsOutput();
+                        
                         continue;
                     }
                 }
@@ -89,7 +90,9 @@ namespace MyTerminal
                         }
 
                         if (!valid)
+                        {
                             continue;
+                        }
 
                         input.Flags = flagsArr;
                     }
@@ -107,6 +110,7 @@ namespace MyTerminal
                         if (parts.Length != 1)
                         {
                             OutputHelper.ConsoleInvalidArgumentsOutput();
+                            
                             continue;
                         }
                     }
@@ -116,6 +120,7 @@ namespace MyTerminal
                         if (parts.Length != 2)
                         {
                             OutputHelper.ConsoleInvalidArgumentsOutput();
+                            
                             continue;
                         }
                     }
@@ -138,16 +143,22 @@ namespace MyTerminal
                         parts[i] = parts[i].Substring(1, parts[i].Length - 2);
                     }
 
-                    if(!valid)
+                    if (!valid)
+                    {
                         continue;
-                    
+                    }
+
                     firstArg = parts[0];
-                    
-                    if(!isOneArgCommand)
+
+                    if (!isOneArgCommand)
+                    {
                         secondArg = parts[1];
+                    }
                 }
 
                 input.Command = command;
+                input.FirstArgument = firstArg;
+                input.SecondArgument = secondArg;
                 switch (command)
                 {
                     case "ls":
@@ -164,22 +175,22 @@ namespace MyTerminal
                         switch (command)
                         {
                             case "cd":
-                                fileHelper.SetCurrentPath(firstArg);
+                                fileHelper.SetCurrentPath(input.FirstArgument);
                                 break;
                             case "shCont":
-                                fileHelper.ShowFileContent(firstArg);
+                                fileHelper.ShowFileContent(input.FirstArgument);
                                 break;
                             case "fCrt":
-                                fileHelper.CreateFile(firstArg);
+                                fileHelper.CreateFile(input.FirstArgument);
                                 break;
                             case "dirCrt":
-                                fileHelper.CreateDirectory(firstArg);
+                                fileHelper.CreateDirectory(input.FirstArgument);
                                 break;
                             case "fDel":
-                                fileHelper.DeleteFile(firstArg);
+                                fileHelper.DeleteFile(input.FirstArgument);
                                 break;
                             case "dirDel":
-                                fileHelper.DeleteDirectory(firstArg);
+                                fileHelper.DeleteDirectory(input.FirstArgument);
                                 break;
                         }
 
@@ -189,20 +200,19 @@ namespace MyTerminal
                     case "fMove":
                     case "fRnm":
                     case "dirRnm":
-
                         switch (command)
                         {
                             case "fContain":
-                                fileHelper.FileContainsString(firstArg, secondArg);
+                                fileHelper.FileContainsString(input.FirstArgument, input.SecondArgument);
                                 break;
                             case "fMove":
-                                fileHelper.MoveFile(firstArg, secondArg);
+                                fileHelper.MoveFile(input.FirstArgument, input.SecondArgument);
                                 break;
                             case "fRnm":
-                                fileHelper.RenameFile(firstArg, secondArg);
+                                fileHelper.RenameFile(input.FirstArgument, input.SecondArgument);
                                 break;
                             case "dirRnm":
-                                fileHelper.RenameDirectory(firstArg, secondArg);
+                                fileHelper.RenameDirectory(input.FirstArgument, input.SecondArgument);
                                 break;
                         }
 
@@ -210,11 +220,6 @@ namespace MyTerminal
                 }
 
             } while (inputString != "exit");
-        }
-
-        public string hello()
-        {
-            return "str";
         }
     }
 }

@@ -1,4 +1,6 @@
+using System;
 using System.IO;
+using System.Text;
 using Microsoft.VisualStudio.TestPlatform.TestHost;
 using Microsoft.VisualStudio.TestPlatform.Utilities.Helpers;
 using Xunit;
@@ -11,7 +13,7 @@ public class FileHelperTests
     public void SetCurrentPath_EmptyString_ReturnsFalse()
     {
         // Arrange
-        const string input = "";
+        var input = String.Empty;
         var fileHelper = new FileHelper();
 
         // Act
@@ -25,7 +27,7 @@ public class FileHelperTests
     public void SetCurrentPath_InvalidPath_ReturnsFalse()
     {
         // Arrange
-        const string input = "invalid";
+        var input = "invalid";
         var fileHelper = new FileHelper();
 
         // Act
@@ -39,7 +41,7 @@ public class FileHelperTests
     public void SetCurrentPath_ValidPath_ReturnsTrue()
     {
         // Arrange
-        const string input = @"C:\";
+        var input = @"C:\";
         var fileHelper = new FileHelper();
 
         // Act
@@ -56,7 +58,7 @@ public class FileHelperTests
     public void CreateFile_ValidString_ReturnsTrue()
     {
         // Arrange
-        const string input = "fileName";
+        var input = "fileName";
         var fileHelper = new FileHelper();
 
         // Act
@@ -71,7 +73,7 @@ public class FileHelperTests
     public void CreateFile_EmptyString_ReturnsFalse()
     {
         // Arrange
-        const string input = "";
+        var input = String.Empty;
         var fileHelper = new FileHelper();
 
         // Act
@@ -87,8 +89,8 @@ public class FileHelperTests
     public void FileContainsString_EmptyArgumentString_ReturnsFalse()
     {
         // Arrange
-        const string input = "";
-        const string fileName = "fileName";
+        var input = String.Empty;
+        var fileName = "fileName";
         var fileHelper = new FileHelper();
 
         // Act
@@ -104,8 +106,8 @@ public class FileHelperTests
     public void RenameFile_EmptyNewFileNameString_ReturnsFalse()
     {
         // Arrange
-        const string input = "";
-        const string fileName = "fileName";
+        var input = String.Empty;
+        var fileName = "fileName";
         var fileHelper = new FileHelper();
 
         // Act
@@ -115,14 +117,29 @@ public class FileHelperTests
         Assert.False(result);
     }
     
+    // [Fact]
+    // public void RenameFile_ValidNewFileNameString_ReturnsTrue()
+    // {
+    //     // Arrange
+    //     var newFileName = "newFileName";
+    //     var fileName = "fileName";
+    //     var fileHelper = new FileHelper();
+    //
+    //     // Act
+    //     var result = fileHelper.RenameFile(fileName, newFileName);
+    //
+    //     // Assert
+    //     Assert.True(result);
+    // }
+    
     // -------
     
     [Fact]
     public void RenameDirectory_EmptyNewFileNameString_ReturnsFalse()
     {
         // Arrange
-        const string input = "";
-        const string fileName = "fileName";
+        var input = String.Empty;
+        var fileName = "fileName";
         var fileHelper = new FileHelper();
 
         // Act
