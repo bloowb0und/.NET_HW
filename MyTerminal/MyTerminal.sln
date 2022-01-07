@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyTerminal", "MyTerminal\MyTerminal.csproj", "{D21926F6-7FCC-4DFF-B33D-17648643BBB8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyTerminal.UnitTests", "MyTerminal.UnitTests\MyTerminal.UnitTests.csproj", "{E7B18794-CDB2-4E81-AC2B-4FF5530C5DB4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D21926F6-7FCC-4DFF-B33D-17648643BBB8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D21926F6-7FCC-4DFF-B33D-17648643BBB8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D21926F6-7FCC-4DFF-B33D-17648643BBB8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D21926F6-7FCC-4DFF-B33D-17648643BBB8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E7B18794-CDB2-4E81-AC2B-4FF5530C5DB4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E7B18794-CDB2-4E81-AC2B-4FF5530C5DB4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E7B18794-CDB2-4E81-AC2B-4FF5530C5DB4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E7B18794-CDB2-4E81-AC2B-4FF5530C5DB4}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
