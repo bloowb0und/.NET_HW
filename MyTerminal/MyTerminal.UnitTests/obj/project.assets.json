@@ -605,6 +605,9 @@
           }
         }
       },
+      "StyleCop.Analyzers/1.1.118": {
+        "type": "package"
+      },
       "System.AppContext/4.3.0": {
         "type": "package",
         "dependencies": {
@@ -1592,6 +1595,13 @@
           "lib/netstandard1.3/System.Xml.XDocument.dll": {}
         }
       },
+      "Text.Analyzers/3.3.3": {
+        "type": "package",
+        "build": {
+          "build/Text.Analyzers.props": {},
+          "build/Text.Analyzers.targets": {}
+        }
+      },
       "xunit/2.4.1": {
         "type": "package",
         "dependencies": {
@@ -1673,6 +1683,7 @@
       },
       "MyTerminal/1.0.0": {
         "type": "project",
+        "framework": ".NETFramework,Version=v4.7.2",
         "compile": {
           "bin/placeholder/MyTerminal.dll": {}
         },
@@ -2706,6 +2717,31 @@
         "runtime.ubuntu.16.10-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg.sha512",
         "runtime.ubuntu.16.10-x64.runtime.native.system.security.cryptography.openssl.nuspec",
         "runtimes/ubuntu.16.10-x64/native/System.Security.Cryptography.Native.OpenSsl.so"
+      ]
+    },
+    "StyleCop.Analyzers/1.1.118": {
+      "sha512": "Onx6ovGSqXSK07n/0eM3ZusiNdB6cIlJdabQhWGgJp3Vooy9AaLS/tigeybOJAobqbtggTamoWndz72JscZBvw==",
+      "type": "package",
+      "path": "stylecop.analyzers/1.1.118",
+      "hasTools": true,
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE",
+        "THIRD-PARTY-NOTICES.txt",
+        "analyzers/dotnet/cs/StyleCop.Analyzers.CodeFixes.dll",
+        "analyzers/dotnet/cs/StyleCop.Analyzers.dll",
+        "analyzers/dotnet/cs/de-DE/StyleCop.Analyzers.resources.dll",
+        "analyzers/dotnet/cs/en-GB/StyleCop.Analyzers.resources.dll",
+        "analyzers/dotnet/cs/es-MX/StyleCop.Analyzers.resources.dll",
+        "analyzers/dotnet/cs/fr-FR/StyleCop.Analyzers.resources.dll",
+        "analyzers/dotnet/cs/pl-PL/StyleCop.Analyzers.resources.dll",
+        "analyzers/dotnet/cs/pt-BR/StyleCop.Analyzers.resources.dll",
+        "analyzers/dotnet/cs/ru-RU/StyleCop.Analyzers.resources.dll",
+        "stylecop.analyzers.1.1.118.nupkg.sha512",
+        "stylecop.analyzers.nuspec",
+        "tools/install.ps1",
+        "tools/uninstall.ps1"
       ]
     },
     "System.AppContext/4.3.0": {
@@ -5837,6 +5873,78 @@
         "system.xml.xdocument.nuspec"
       ]
     },
+    "Text.Analyzers/3.3.3": {
+      "sha512": "hsCZSogDllbYU+A3HATKBogfWpQm/hS9GOk1M6wux8M3+zgocNpJ+NeccAgXxAQ1KaEHbGxCZNEPAVZqDQeTFg==",
+      "type": "package",
+      "path": "text.analyzers/3.3.3",
+      "hasTools": true,
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "ThirdPartyNotices.rtf",
+        "analyzers/dotnet/cs/Humanizer.dll",
+        "analyzers/dotnet/cs/Text.Analyzers.dll",
+        "analyzers/dotnet/cs/Text.CSharp.Analyzers.dll",
+        "analyzers/dotnet/cs/cs/Text.Analyzers.resources.dll",
+        "analyzers/dotnet/cs/de/Text.Analyzers.resources.dll",
+        "analyzers/dotnet/cs/es/Text.Analyzers.resources.dll",
+        "analyzers/dotnet/cs/fr/Text.Analyzers.resources.dll",
+        "analyzers/dotnet/cs/it/Text.Analyzers.resources.dll",
+        "analyzers/dotnet/cs/ja/Text.Analyzers.resources.dll",
+        "analyzers/dotnet/cs/ko/Text.Analyzers.resources.dll",
+        "analyzers/dotnet/cs/pl/Text.Analyzers.resources.dll",
+        "analyzers/dotnet/cs/pt-BR/Text.Analyzers.resources.dll",
+        "analyzers/dotnet/cs/ru/Text.Analyzers.resources.dll",
+        "analyzers/dotnet/cs/tr/Text.Analyzers.resources.dll",
+        "analyzers/dotnet/cs/zh-Hans/Text.Analyzers.resources.dll",
+        "analyzers/dotnet/cs/zh-Hant/Text.Analyzers.resources.dll",
+        "analyzers/dotnet/vb/Humanizer.dll",
+        "analyzers/dotnet/vb/Text.Analyzers.dll",
+        "analyzers/dotnet/vb/Text.VisualBasic.Analyzers.dll",
+        "analyzers/dotnet/vb/cs/Text.Analyzers.resources.dll",
+        "analyzers/dotnet/vb/de/Text.Analyzers.resources.dll",
+        "analyzers/dotnet/vb/es/Text.Analyzers.resources.dll",
+        "analyzers/dotnet/vb/fr/Text.Analyzers.resources.dll",
+        "analyzers/dotnet/vb/it/Text.Analyzers.resources.dll",
+        "analyzers/dotnet/vb/ja/Text.Analyzers.resources.dll",
+        "analyzers/dotnet/vb/ko/Text.Analyzers.resources.dll",
+        "analyzers/dotnet/vb/pl/Text.Analyzers.resources.dll",
+        "analyzers/dotnet/vb/pt-BR/Text.Analyzers.resources.dll",
+        "analyzers/dotnet/vb/ru/Text.Analyzers.resources.dll",
+        "analyzers/dotnet/vb/tr/Text.Analyzers.resources.dll",
+        "analyzers/dotnet/vb/zh-Hans/Text.Analyzers.resources.dll",
+        "analyzers/dotnet/vb/zh-Hant/Text.Analyzers.resources.dll",
+        "build/DisableNETAnalyzersForNuGetPackage.props",
+        "build/Text.Analyzers.props",
+        "build/Text.Analyzers.targets",
+        "documentation/Analyzer Configuration.md",
+        "documentation/Text.Analyzers.md",
+        "documentation/Text.Analyzers.sarif",
+        "editorconfig/AllRulesDefault/.editorconfig",
+        "editorconfig/AllRulesDisabled/.editorconfig",
+        "editorconfig/AllRulesEnabled/.editorconfig",
+        "editorconfig/DataflowRulesDefault/.editorconfig",
+        "editorconfig/DataflowRulesEnabled/.editorconfig",
+        "editorconfig/NamingRulesDefault/.editorconfig",
+        "editorconfig/NamingRulesEnabled/.editorconfig",
+        "editorconfig/PortedFromFxCopRulesDefault/.editorconfig",
+        "editorconfig/PortedFromFxCopRulesEnabled/.editorconfig",
+        "rulesets/AllRulesDefault.ruleset",
+        "rulesets/AllRulesDisabled.ruleset",
+        "rulesets/AllRulesEnabled.ruleset",
+        "rulesets/DataflowRulesDefault.ruleset",
+        "rulesets/DataflowRulesEnabled.ruleset",
+        "rulesets/NamingRulesDefault.ruleset",
+        "rulesets/NamingRulesEnabled.ruleset",
+        "rulesets/PortedFromFxCopRulesDefault.ruleset",
+        "rulesets/PortedFromFxCopRulesEnabled.ruleset",
+        "text.analyzers.3.3.3.nupkg.sha512",
+        "text.analyzers.nuspec",
+        "tools/install.ps1",
+        "tools/uninstall.ps1"
+      ]
+    },
     "xunit/2.4.1": {
       "sha512": "XNR3Yz9QTtec16O0aKcO6+baVNpXmOnPUxDkCY97J+8krUYxPvXT1szYYEUdKk4sB8GOI2YbAjRIOm8ZnXRfzQ==",
       "type": "package",
@@ -5982,6 +6090,8 @@
     "net6.0": [
       "Microsoft.NET.Test.Sdk >= 16.11.0",
       "MyTerminal >= 1.0.0",
+      "StyleCop.Analyzers >= 1.1.118",
+      "Text.Analyzers >= 3.3.3",
       "coverlet.collector >= 3.1.0",
       "xunit >= 2.4.1",
       "xunit.runner.visualstudio >= 2.4.3"
@@ -5995,11 +6105,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Development\\Obuchalka .NET\\Homeworks\\HW1) File manager\\MyTerminal\\MyTerminal.UnitTests\\MyTerminal.UnitTests.csproj",
+      "projectUniqueName": "D:\\Development\\Obuchalka .NET\\Homeworks\\Homeworks_GitProj\\MyTerminal\\MyTerminal.UnitTests\\MyTerminal.UnitTests.csproj",
       "projectName": "MyTerminal.UnitTests",
-      "projectPath": "D:\\Development\\Obuchalka .NET\\Homeworks\\HW1) File manager\\MyTerminal\\MyTerminal.UnitTests\\MyTerminal.UnitTests.csproj",
+      "projectPath": "D:\\Development\\Obuchalka .NET\\Homeworks\\Homeworks_GitProj\\MyTerminal\\MyTerminal.UnitTests\\MyTerminal.UnitTests.csproj",
       "packagesPath": "C:\\Users\\Kirill\\.nuget\\packages\\",
-      "outputPath": "D:\\Development\\Obuchalka .NET\\Homeworks\\HW1) File manager\\MyTerminal\\MyTerminal.UnitTests\\obj\\",
+      "outputPath": "D:\\Development\\Obuchalka .NET\\Homeworks\\Homeworks_GitProj\\MyTerminal\\MyTerminal.UnitTests\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "E:\\Visual Studio\\Microsoft Visual Studio Shared (SDK)\\NuGetPackages",
@@ -6022,13 +6132,14 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "D:\\Development\\Obuchalka .NET\\Homeworks\\HW1) File manager\\MyTerminal\\MyTerminal\\MyTerminal.csproj": {
-              "projectPath": "D:\\Development\\Obuchalka .NET\\Homeworks\\HW1) File manager\\MyTerminal\\MyTerminal\\MyTerminal.csproj"
+            "D:\\Development\\Obuchalka .NET\\Homeworks\\Homeworks_GitProj\\MyTerminal\\MyTerminal\\MyTerminal.csproj": {
+              "projectPath": "D:\\Development\\Obuchalka .NET\\Homeworks\\Homeworks_GitProj\\MyTerminal\\MyTerminal\\MyTerminal.csproj"
             }
           }
         }
       },
       "warningProperties": {
+        "allWarningsAsErrors": true,
         "warnAsError": [
           "NU1605"
         ]
@@ -6041,6 +6152,18 @@
           "Microsoft.NET.Test.Sdk": {
             "target": "Package",
             "version": "[16.11.0, )"
+          },
+          "StyleCop.Analyzers": {
+            "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+            "suppressParent": "All",
+            "target": "Package",
+            "version": "[1.1.118, )"
+          },
+          "Text.Analyzers": {
+            "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+            "suppressParent": "All",
+            "target": "Package",
+            "version": "[3.3.3, )"
           },
           "coverlet.collector": {
             "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",

@@ -5,3 +5,11 @@ D:\Development\Obuchalka .NET\Homeworks\HW1) File manager\MyTerminal\MyTerminal\
 D:\Development\Obuchalka .NET\Homeworks\HW1) File manager\MyTerminal\MyTerminal\obj\Debug\MyTerminal.exe
 D:\Development\Obuchalka .NET\Homeworks\HW1) File manager\MyTerminal\MyTerminal\obj\Debug\MyTerminal.pdb
 D:\Development\Obuchalka .NET\Homeworks\HW1) File manager\MyTerminal\MyTerminal\obj\Debug\MyTerminal.csproj.SuggestedBindingRedirects.cache
+D:\Development\Obuchalka .NET\Homeworks\Homeworks_GitProj\MyTerminal\MyTerminal\bin\Debug\MyTerminal.exe
+D:\Development\Obuchalka .NET\Homeworks\Homeworks_GitProj\MyTerminal\MyTerminal\bin\Debug\MyTerminal.pdb
+D:\Development\Obuchalka .NET\Homeworks\Homeworks_GitProj\MyTerminal\MyTerminal\obj\Debug\MyTerminal.csproj.AssemblyReference.cache
+D:\Development\Obuchalka .NET\Homeworks\Homeworks_GitProj\MyTerminal\MyTerminal\obj\Debug\MyTerminal.csproj.SuggestedBindingRedirects.cache
+D:\Development\Obuchalka .NET\Homeworks\Homeworks_GitProj\MyTerminal\MyTerminal\obj\Debug\MyTerminal.csproj.CoreCompileInputs.cache
+D:\Development\Obuchalka .NET\Homeworks\Homeworks_GitProj\MyTerminal\MyTerminal\obj\Debug\MyTerminal.exe
+D:\Development\Obuchalka .NET\Homeworks\Homeworks_GitProj\MyTerminal\MyTerminal\obj\Debug\MyTerminal.pdb
+D:\Development\Obuchalka .NET\Homeworks\Homeworks_GitProj\MyTerminal\MyTerminal\obj\Debug\MyTerminal.GeneratedMSBuildEditorConfig.editorconfig

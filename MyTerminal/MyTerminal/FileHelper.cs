@@ -11,7 +11,7 @@ namespace MyTerminal
 
         public FileHelper()
         {
-            CurrentPath = @"C:\";
+            CurrentPath = Directory.GetCurrentDirectory();
         }
 
         public bool SetCurrentPath(string curPath)
@@ -57,8 +57,10 @@ namespace MyTerminal
                 return false; 
             }
             
-            using (var fs = File.Create($"{CurrentPath}\\{fileName}")) ;
-            
+            using (var fs = File.Create($"{CurrentPath}\\{fileName}"))
+            {
+            }
+
             return true;
         }
 
@@ -80,6 +82,13 @@ namespace MyTerminal
         
         public bool CreateDirectory(string dirName)
         {
+            if (dirName == string.Empty)
+            {
+                OutputHelper.ConsoleInvalidArgumentsOutput();
+                
+                return false;
+            }
+            
             var directory = new DirectoryInfo($"{CurrentPath}\\{dirName}");
 
             if (directory.Exists)
@@ -119,6 +128,13 @@ namespace MyTerminal
                 return false;
             }
 
+            if (!Directory.Exists(newPath))
+            {
+                OutputHelper.ConsoleDirectoryDoesntExistOutput();
+                
+                return false;
+            }
+
             if (File.Exists($"{newPath}\\{fileName}"))
             {
                 File.Delete($"{newPath}\\{fileName}");
@@ -141,7 +157,7 @@ namespace MyTerminal
             var directoryInfo = new DirectoryInfo(CurrentPath);
             var files = directoryInfo.GetFiles();
             var dirs = directoryInfo.GetDirectories();
-            var filteredF = files.Where(f => !f.Attributes.HasFlag(FileAttributes.Hidden)).ToArray();;
+            var filteredF = files.Where(f => !f.Attributes.HasFlag(FileAttributes.Hidden)).ToArray();
             var filteredD = dirs.Where(f => !f.Attributes.HasFlag(FileAttributes.Hidden)).ToArray();
 
             if (input.Flags != null)
@@ -233,15 +249,14 @@ namespace MyTerminal
                 
                 return false;
             }
-            
-            using (StreamReader sr = new StreamReader($"{CurrentPath}\\{fileName}"))
-            {
-                var allFileText = sr.ReadToEnd();
 
-                OutputHelper.ConsoleFileContainsTextOutput(fileName, argument, allFileText.Contains(argument));
-            }
+            var allFileText = File.ReadAllText($"{CurrentPath}\\{fileName}");
             
-            return true;
+            var containStatus = allFileText.Contains(argument);
+
+            OutputHelper.ConsoleFileContainsTextOutput(fileName, argument, containStatus);
+            
+            return containStatus;
         }
 
         public bool RenameFile(string fileName, string newFileName)
