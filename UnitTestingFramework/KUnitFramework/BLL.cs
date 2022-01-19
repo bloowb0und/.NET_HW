@@ -31,7 +31,7 @@ namespace KUnitFramework
                 this.InvokeBeforeMethod(dataAccessLayer, assembly);
                 method.Invoke(Activator.CreateInstance(method.DeclaringType), method.GetParameters());
 
-                result.Add(method.ReturnType.ToString().Split('.')[1] + " " + method.Name, Assert.TestRes);
+                result.Add($"{method.ReturnType.ToString().Split('.')[1]} {method.Name}()", Assert.TestRes);
             }
 
             this.InvokeAfterGroupMethod(dataAccessLayer, assembly);
