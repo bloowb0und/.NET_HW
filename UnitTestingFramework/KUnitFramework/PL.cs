@@ -9,23 +9,23 @@ namespace KUnitFramework
     {
         public static bool GetUnitTestsResults(Assembly assembly)
         {
-            var bll = new BLL();
+            var businessLogicLayer = new BLL();
             var testRes = true;
-            
-            var unitTestResults = bll.GetUnitTestResults(assembly);
+
+            var unitTestResults = businessLogicLayer.GetUnitTestResults(assembly);
 
             if (unitTestResults.ContainsValue("null"))
             {
-                var prevConsoleColor = Console.ForegroundColor;
+                var previousConsoleColor = Console.ForegroundColor;
                 Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine(new string('=', 20));
                 Console.WriteLine("Every unit test should contain an Assert statement");
                 Console.WriteLine(new string('=', 20));
-                Console.ForegroundColor = prevConsoleColor;
+                Console.ForegroundColor = previousConsoleColor;
 
                 throw new Exception("One or more unit tests doesn't contain Assert statement.");
             }
-            
+
             Console.Clear();
 
             Console.WriteLine("\t" + new string('-', 30));
@@ -36,9 +36,9 @@ namespace KUnitFramework
             Console.WriteLine($"{"Unit test",15} \t {"Result",15}");
             foreach (var result in unitTestResults)
             {
-                var prevConsoleColor = Console.ForegroundColor;
+                var previousConsoleColor = Console.ForegroundColor;
 
-                if (Boolean.Parse(result.Value))
+                if (bool.Parse(result.Value))
                 {
                     Console.ForegroundColor = ConsoleColor.Green;
                 }
@@ -47,10 +47,10 @@ namespace KUnitFramework
                     Console.ForegroundColor = ConsoleColor.Red;
                     testRes = false;
                 }
-                
+
                 Console.WriteLine($"{result.Key,15} \t {result.Value,15}");
 
-                Console.ForegroundColor = prevConsoleColor;
+                Console.ForegroundColor = previousConsoleColor;
             }
 
             return testRes;

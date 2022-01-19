@@ -21,7 +21,7 @@ namespace KUnitFramework
         public List<MethodInfo> GetMethodsFromClassWithInterface()
         {
             var methods = new List<MethodInfo>();
-            
+
             var classes = AppDomain.CurrentDomain.GetAssemblies().SelectMany(x => x.GetTypes())
                 .Where(x => typeof(IKTested).IsAssignableFrom(x) && !x.IsInterface && !x.IsAbstract)
                 .ToList();

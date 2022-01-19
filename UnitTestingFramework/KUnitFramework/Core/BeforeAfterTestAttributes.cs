@@ -7,7 +7,7 @@ namespace KUnitFramework
         public class KTestedBeforeTest : Attribute
         {
         }
-        
+
         public class KTestedAfterGroup : Attribute
         {
         }
