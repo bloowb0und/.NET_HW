@@ -1,5 +1,7 @@
-﻿using System.Reflection;
+﻿using System.IO;
+using System.Reflection;
 using KUnitFramework;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace UnitTestingFramework
 {
@@ -7,7 +9,16 @@ namespace UnitTestingFramework
     {
         public static void Main()
         {
-            PL.GetUnitTestsResults(Assembly.GetExecutingAssembly());
+            var services = new ServiceCollection();
+            ConfigureServices(services);
+            var serviceProvider = services.BuildServiceProvider();
+            serviceProvider.GetService<App>().StartApp();
+        }
+
+        private static void ConfigureServices(IServiceCollection services)
+        {
+            services.AddScoped<App>();
+            DependencyRegistrar_BLL.ConfigureServices(services);
         }
     }
 }

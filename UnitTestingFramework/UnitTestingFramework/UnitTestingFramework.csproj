@@ -33,16 +33,20 @@
         <WarningLevel>4</WarningLevel>
     </PropertyGroup>
     <ItemGroup>
+        <Reference Include="Microsoft.Extensions.DependencyInjection.Abstractions, Version=6.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60">
+          <HintPath>C:\Users\Kirill\.nuget\packages\microsoft.extensions.dependencyinjection.abstractions\6.0.2-mauipre.1.22054.8\lib\net461\Microsoft.Extensions.DependencyInjection.Abstractions.dll</HintPath>
+        </Reference>
         <Reference Include="System" />
         <Reference Include="System.Core" />
         <Reference Include="System.Data" />
         <Reference Include="System.Xml" />
     </ItemGroup>
     <ItemGroup>
-        <Compile Include="MyClass_UnitTests.cs" />
+        <Compile Include="HelperClasses\MyClass_UnitTests.cs" />
+        <Compile Include="HelperClasses\UnitTestingHelper.cs" />
         <Compile Include="Program.cs" />
         <Compile Include="Properties\AssemblyInfo.cs" />
-        <Compile Include="UnitTestingHelper.cs" />
+        <Compile Include="App.cs" />
     </ItemGroup>
     <ItemGroup>
       <ProjectReference Include="..\KUnitFramework\KUnitFramework.csproj">
@@ -59,6 +63,7 @@
     </Target>
     -->
     <ItemGroup>
+        <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="6.0.2-mauipre.1.22054.8" />
         <PackageReference Include="StyleCop.Analyzers" Version="1.1.118">
             <PrivateAssets>all</PrivateAssets>
             <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>

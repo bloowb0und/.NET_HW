@@ -38,13 +38,16 @@
         <Reference Include="System.Xml" />
     </ItemGroup>
     <ItemGroup>
-        <Compile Include="BLL.cs" />
+        <Compile Include="BLL.Abstractions\IBLL.cs" />
+        <Compile Include="BLL\BLL.cs" />
+        <Compile Include="BLL\DependencyRegistrar_BLL.cs" />
         <Compile Include="Core\Assert.cs" />
         <Compile Include="Core\BeforeAfterTestAttributes.cs" />
         <Compile Include="Core\IKTested.cs" />
         <Compile Include="Core\KTested.cs" />
-        <Compile Include="DAL.cs" />
-        <Compile Include="PL.cs" />
+        <Compile Include="DAL.Abstractions\IDAL.cs" />
+        <Compile Include="DAL\DAL.cs" />
+        <Compile Include="DAL\DependencyRegistrar_DAL.cs" />
         <Compile Include="Properties\AssemblyInfo.cs" />
     </ItemGroup>
     <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
@@ -56,6 +59,9 @@
     </Target>
     -->
     <ItemGroup>
+        <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="6.0.2-mauipre.1.22054.8" />
+        <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="6.0.2-mauipre.1.22054.8" />
+        <PackageReference Include="Microsoft.Extensions.Options" Version="6.0.2-mauipre.1.22054.8" />
         <PackageReference Include="StyleCop.Analyzers" Version="1.1.118">
             <PrivateAssets>all</PrivateAssets>
             <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>

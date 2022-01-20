@@ -6,11 +6,18 @@ using System.Reflection.Emit;
 
 namespace KUnitFramework
 {
-    internal class DAL
+    internal class DAL : IDAL
     {
+        private readonly Assembly _assembly;
+        
+        public DAL(Assembly assembly)
+        {
+            _assembly = assembly;
+        }
+        
         public MethodInfo[] GetMethodsWithAttribute(Assembly assembly, Type type)
         {
-            var methods = assembly.GetTypes()
+            var methods = _assembly.GetTypes()
                 .SelectMany(t => t.GetMethods())
                 .Where(m => m.GetCustomAttributes(type, false).Length > 0)
                 .ToArray();
@@ -18,7 +25,7 @@ namespace KUnitFramework
             return methods;
         }
 
-        public List<MethodInfo> GetMethodsFromClassWithInterface()
+        public IEnumerable<MethodInfo> GetMethodsFromClassWithInterface()
         {
             var methods = new List<MethodInfo>();
 
