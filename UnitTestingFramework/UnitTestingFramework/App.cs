@@ -5,17 +5,17 @@ namespace UnitTestingFramework
 {
     public class App
     {
-        private readonly IBLL _businessLogicLayer;
+        private readonly IBLL businessLogicLayer;
 
-        public App(IBLL businessLogicLayer, Assembly assembly)
+        public App(IBLL businessLogicLayer)
         {
-            this._businessLogicLayer = businessLogicLayer;
+            this.businessLogicLayer = businessLogicLayer;
         }
 
         public void StartApp()
         {
             var assembly = Assembly.GetExecutingAssembly();
-            this._businessLogicLayer.ShowUnitTestsResults(assembly);
+            this.businessLogicLayer.ShowUnitTestsResults(assembly);
         }
     }
 }

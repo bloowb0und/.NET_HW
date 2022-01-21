@@ -13,6 +13,6 @@ namespace KUnitFramework
 
         void SetAssertTestResValue(object value);
 
-        bool ShowUnitTestsResults(Assembly assembly);    
+        bool ShowUnitTestsResults(Assembly assembly);
     }
 }

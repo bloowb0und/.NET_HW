@@ -8,18 +8,18 @@ namespace KUnitFramework
 {
     internal class BLL : IBLL
     {
-        private readonly IDAL _dataAccessLayer;
-        private Assembly _assembly;
-        
-        public BLL(IDAL dal)
+        private readonly IDAL dataAccessLayer;
+        private Assembly assembly;
+
+        public BLL(IDAL dataAccessL)
         {
-            this._dataAccessLayer = dal;
+            this.dataAccessLayer = dataAccessL;
         }
-        
+
         public bool ShowUnitTestsResults(Assembly assembly)
         {
-            _assembly = assembly;
-            
+            this.assembly = assembly;
+
             var testRes = true;
 
             var unitTestResults = this.GetUnitTestResults();
@@ -65,11 +65,11 @@ namespace KUnitFramework
 
             return testRes;
         }
-        
+
         public Dictionary<string, string> GetUnitTestResults()
         {
-            var attributeMethods = _dataAccessLayer.GetMethodsWithAttribute(_assembly, typeof(KTested));
-            var interfaceInheritedMethods = _dataAccessLayer.GetMethodsFromClassWithInterface();
+            var attributeMethods = this.dataAccessLayer.GetMethodsWithAttribute(this.assembly, typeof(KTested));
+            var interfaceInheritedMethods = this.dataAccessLayer.GetMethodsFromClassWithInterface();
 
             var allSuitableMethods = attributeMethods
                 .Concat(interfaceInheritedMethods)
@@ -97,7 +97,7 @@ namespace KUnitFramework
 
         public void InvokeBeforeMethod()
         {
-            var methodBefore = _dataAccessLayer.GetMethodsWithAttribute(_assembly, typeof(BeforeAfterTestAttributes.KTestedBeforeTest))[0];
+            var methodBefore = this.dataAccessLayer.GetMethodsWithAttribute(this.assembly, typeof(BeforeAfterTestAttributes.KTestedBeforeTest))[0];
 
             if (methodBefore == null)
             {
@@ -111,7 +111,7 @@ namespace KUnitFramework
 
         public void InvokeAfterGroupMethod()
         {
-            var methodAfterGroup = _dataAccessLayer.GetMethodsWithAttribute(_assembly, typeof(BeforeAfterTestAttributes.KTestedAfterGroup))[0];
+            var methodAfterGroup = this.dataAccessLayer.GetMethodsWithAttribute(this.assembly, typeof(BeforeAfterTestAttributes.KTestedAfterGroup))[0];
 
             if (methodAfterGroup == null)
             {
